@@ -60,22 +60,22 @@ class ApiClient {
 
   // Assignments
   async listAssignments() {
-    return this.fetch("/api/assignments");
+    return this.fetch("/assignments");
   }
 
   async createAssignment(data) {
-    return this.fetch("/api/assignments", {
+    return this.fetch("/assignments", {
       method: "POST",
       body: JSON.stringify(data),
     });
   }
 
   async getAssignmentStatus(id) {
-    return this.fetch(`/api/assignments/${id}/status`);
+    return this.fetch(`/assignments/${id}/status`);
   }
 
   async getAssignmentResult(id) {
-    return this.fetch(`/api/assignments/${id}/result`);
+    return this.fetch(`/assignments/${id}/result`);
   }
 }
 
