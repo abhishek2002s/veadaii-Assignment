@@ -6,9 +6,9 @@ export interface TokenPayload {
 }
 
 export function signToken(payload: TokenPayload): string {
-  return jwt.sign(payload, process.env.JWT_SECRET || "dev-secret", {
-    expiresIn: (process.env.JWT_EXPIRES_IN || "7d") as string,
-  });
+  const secret = process.env.JWT_SECRET || "dev-secret";
+  const expiresIn = (process.env.JWT_EXPIRES_IN || "7d") as any;
+  return jwt.sign(payload, secret, { expiresIn });
 }
 
 export function verifyToken(token: string): TokenPayload | null {
